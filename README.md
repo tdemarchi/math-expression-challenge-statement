@@ -4,7 +4,7 @@ Parse mathematical expressions given in a prefix notation, and provide an API to
 
 Expected mathematical operations are:
 - `+`, `-`, `*` and `/`, which take 2 operands.
-- `max` and `min` which take 1..N operands.
+- `max` and `min`, which take 1..N operands.
 
 Operands will be in the form of **integer** values, **variable** name or **sub-expressions** surrounded by parenthesis.
 
@@ -14,16 +14,16 @@ Each token will be separated by whitespace.
 
 Valid syntax:
 ```
-Examples                     | Eval with Context
-( + 5 6 )                      {} -> 11
-( - 10 2 )                     {} -> 8
-( * ( + 1 2 ) ( - 3 1 ) )      {} -> 6
-( + 2 x )                      {x : 10} -> 12
-5                              {} ->  5
-x                              {x: 10} -> 10        
-( max 1 )                      {} -> 1
-( max 1 20 x y )               {x: 5, y:7} -> 20
-( min 1 2 3 )                  {} -> 1
+Expression                  | Eval input variables | Eval result
+( + 5 6 )                   | {}                   | 11
+( - 10 2 )                  | {}                   | 8
+( * ( + 1 2 ) ( - 3 1 ) )   | {}                   | 6
+( + 2 x )                   | {x: 10}              | 12
+5                           | {}                   | 5
+x                           | {x: 10}              | 10
+( max 1 )                   | {}                   | 1
+( max 1 20 x y )            | {x: 5, y: 7}         | 20
+( min 1 2 3 )               | {}                   | 1
 ```
 
 Provide an API to parse an expression, and another API to evaluate the parsed expression given substituted variables.
